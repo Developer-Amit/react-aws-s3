@@ -20,18 +20,18 @@ import S3 from 'react-aws-s3';
 
 const config = {
     bucketName: 'myBucket',
-    dirName: 'photos', /* optional */
+    dirName: 'media', /* optional */
     region: 'eu-west-1',
-    accessKeyId: 'ANEIFNENI4324N2NIEXAMPLE',
-    secretAccessKey: 'cms21uMxçduyUxYjeg20+DEkgDxe6veFosBT7eUgEXAMPLE',
-    s3Url: 'https://my-s3-url.com/', /* optional */
+    accessKeyId: 'JAJHAFJFHJDFJSDHFSDHFJKDSF',
+    secretAccessKey: 'jhsdf99845fd98qwed42ebdyeqwd-3r98f373f=qwrq3rfr3rf',
+    s3Url: 'https:/your-custom-s3-url.com/', /* optional */
 }
 
 const ReactS3Client = new S3(config);
 /*  Notice that if you don't provide a dirName, the file will be automatically uploaded to the root of your bucket */
 
 /* This is optional */
-const newFileName = 'my-awesome-file';
+const newFileName = 'test-file';
 
 ReactS3Client
     .uploadFile(file, newFileName)
@@ -41,9 +41,9 @@ ReactS3Client
   /**
    * {
    *   Response: {
-   *     bucket: "your-bucket-name",
-   *     key: "photos/image.jpg",
-   *     location: "https://your-bucket.s3.amazonaws.com/photos/image.jpg"
+   *     bucket: "myBucket",
+   *     key: "image/test-image.jpg",
+   *     location: "https://myBucket.s3.amazonaws.com/media/test-file.jpg"
    *   }
    * }
    */
@@ -60,16 +60,16 @@ import S3 from 'react-aws-s3';
 
 const config = {
     bucketName: 'myBucket',
-    dirName: 'school-documents',
+    dirName: 'media', /* optional */
     region: 'eu-west-1',
-    accessKeyId: 'ANEIFNENI4324N2NIEXAMPLE',
-    secretAccessKey: 'cms21uMxçduyUxYjeg20+DEkgDxe6veFosBT7eUgEXAMPLE',
-    s3Url: 'https://my-s3-url.com/', /* optional */
+    accessKeyId: 'JAJHAFJFHJDFJSDHFSDHFJKDSF',
+    secretAccessKey: 'jhsdf99845fd98qwed42ebdyeqwd-3r98f373f=qwrq3rfr3rf',
+    s3Url: 'https:/your-custom-s3-url.com/', /* optional */
 }
 
 const ReactS3Client = new S3(config);
 
-const filename = 'hello-world.pdf';
+const filename = 'hello-world.docx';
 
 /* If the file that you want to delete it's in your bucket's root folder, don't provide any dirName in the config object */
 
@@ -86,7 +86,7 @@ ReactS3Client
    *      ok: true,
           status: 204,
           message: 'File deleted',
-          fileName: 'hello-world.pdf'
+          fileName: 'hello-world.docx'
    *   }
    * }
    */
