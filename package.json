@@ -1,0 +1,57 @@
+{
+  "name": "react-aws-s3",
+  "version": "1.0.0",
+  "description": "Open Source Module to Upload your Media and files into AWS S3 Bucket directly from Front-end React.",
+  "author": "Amit Mishra",
+  "main": "dist/react-aws-s3.js",
+  "module": "dist/react-aws-s3.m.js",
+  "source": "src/S3Client.ts",
+  "umd:main": "dist/react-aws-s3.umd.js",
+  "unpkg": "dist/react-aws-s3.js",
+  "scripts": {
+    "build": "microbundle --ts",
+    "clean": "rm -rf dist",
+    "dev": "microbundle --ts watch",
+    "tslint": "tslint -c tslint.json 'src/**/*.ts'",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "files": [
+    "cjs",
+    "esm",
+    "umd"
+  ],
+  "keywords": [
+    "react-component",
+    "react",
+    "s3",
+    "upload",
+    "vanillajs",
+    "vue-aws3",
+    "vuejs",
+    "typescript",
+    "angular-aws3",
+    "angular",
+    "aws",
+    "file-upload",
+    "file",
+    "react-aws-s3"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "short-uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^3.1.43",
+    "microbundle": "^0.9.0",
+    "typescript": "^3.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Developer-Amit/react-aws-s3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Developer-Amit/react-aws-s3/issues"
+  },
+  "homepage": "https://github.com/Developer-Amit/react-aws-s3#readme"
+}
