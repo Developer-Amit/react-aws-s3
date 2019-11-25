@@ -6,9 +6,17 @@ Open Source Module to Upload your Media and files into AWS S3 Bucket directly fr
 
 S3Client - A Javascript Library for AWS S3 File Upload
 
+Using NPM
+
 ```
 npm install --save react-aws-s3
 ```
+Using Yarn 
+
+```
+yarn add react-aws-s3
+```
+
 
 
 # Examples Uploading An Image
