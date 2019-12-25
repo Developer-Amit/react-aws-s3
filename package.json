@@ -5,7 +5,7 @@
   "author": "Amit Mishra",
   "main": "dist/react-aws-s3.js",
   "module": "dist/react-aws-s3.m.js",
-  "source": "src/ReactS3Client.ts",
+  "source": "src/react-aws-s3.ts",
   "umd:main": "dist/react-aws-s3.umd.js",
   "unpkg": "dist/react-aws-s3.js",
   "scripts": {

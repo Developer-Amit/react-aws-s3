@@ -8,7 +8,7 @@ export interface IConfig {
   region: string
   accessKeyId: string,
   secretAccessKey: string,
-  s3Url: string
+  s3Url?: string
 };
 
 type GenericType = {
