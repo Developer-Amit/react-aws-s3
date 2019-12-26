@@ -1,5 +1,9 @@
-Current Version `1.2.0`
+Current Version `1.3.0`
 # Changelog
+
+Update Package dependencies and Perfomance
+
+Version `1.3.0`
 
 Update Yarn support and Command
 

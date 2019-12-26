@@ -1,6 +1,6 @@
 {
   "name": "react-aws-s3",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Open Source Module to Upload your Media and files into AWS S3 Bucket directly from Front-end React.",
   "author": "Amit Mishra",
   "main": "dist/react-aws-s3.js",
