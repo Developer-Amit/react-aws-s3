@@ -16,7 +16,7 @@ class ReactS3Client {
 
       const fd = new FormData();
       const fileExtension: string = file.type.split('/')[1];
-      const fileName: string = `${newFileName || shortId.generate()}.${fileExtension}`;
+      const fileName: string = newFileName || `${shortId.generate()}.${fileExtension}`;
       const key: string = `${this.config.dirName ? this.config.dirName + "/" : ""}${fileName}`;
       const url: string = GetUrl(this.config);
       fd.append("key", key);
