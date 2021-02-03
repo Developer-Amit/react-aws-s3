@@ -15,7 +15,7 @@ class ReactS3Client {
       throwError(this.config, file);
 
       const fd = new FormData();
-      const fileExtension: string = file.type.split('/')[1];
+      const fileExtension: string = this.getfileExtension(file, newFileName);
       const fileName: string = `${newFileName || shortId.generate()}.${fileExtension}`;
       const key: string = `${this.config.dirName ? this.config.dirName + "/" : ""}${fileName}`;
       const url: string = GetUrl(this.config);
@@ -62,6 +62,13 @@ class ReactS3Client {
         message: "File Deleted",
         fileName: fileName
       });
+    }
+    private getfileExtension(file: File, newFileName?: string): string {
+      if (newFileName && newFileName.includes(".")) {
+        const splittedNameParts = newFileName.split(".");
+        return splittedNameParts[splittedNameParts.length - 1];
+      }
+      return file.type.split("/")[1];
     }
 }
 
