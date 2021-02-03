@@ -15,8 +15,7 @@ class ReactS3Client {
       throwError(this.config, file);
 
       const fd = new FormData();
-      const fileExtension: string = this.getfileExtension(file, newFileName);
-      const fileName: string = `${newFileName || shortId.generate()}.${fileExtension}`;
+      const fileName: string = this.getFileNameWithExtension(file, newFileName);
       const key: string = `${this.config.dirName ? this.config.dirName + "/" : ""}${fileName}`;
       const url: string = GetUrl(this.config);
       fd.append("key", key);
@@ -63,12 +62,11 @@ class ReactS3Client {
         fileName: fileName
       });
     }
-    private getfileExtension(file: File, newFileName?: string): string {
+    private getFileNameWithExtension(file: File, newFileName?: string): string {
       if (newFileName && newFileName.includes(".")) {
-        const splittedNameParts = newFileName.split(".");
-        return splittedNameParts[splittedNameParts.length - 1];
+        return newFileName;
       }
-      return file.type.split("/")[1];
+      return `${newFileName || shortId.generate()}.${file.type.split("/")[1]}`;
     }
 }
 
