@@ -11,6 +11,41 @@ class ReactS3Client {
     constructor(config: IConfig) {
       this.config = config;
     }
+
+    public async uploadDataFile(rawData: string, contentType: string, fileName: string): Promise<UploadResponse> {
+      const fd = new FormData();
+      const key: string = `${this.config.dirName ? this.config.dirName + "/" : ""}${fileName}`;
+      const url: string = GetUrl(this.config);
+      fd.append("key", key);
+      fd.append("acl", "public-read");
+      fd.append("Content-Type", contentType);
+      fd.append("x-amz-meta-uuid", "14365123651274");
+      fd.append("x-amz-server-side-encryption", "AES256");
+      fd.append(
+          "X-Amz-Credential",
+          `${this.config.accessKeyId}/${dateYMD}/${this.config.region}/s3/aws4_request`
+      );
+      fd.append("X-Amz-Algorithm", "AWS4-HMAC-SHA256");
+      fd.append("X-Amz-Date", xAmzDate);
+      fd.append("x-amz-meta-tag", "");
+      fd.append("Policy", Policy.getPolicy(this.config));
+      fd.append(
+          "X-Amz-Signature",
+          Signature.getSignature(this.config, dateYMD, Policy.getPolicy(this.config))
+      );
+      var blob = new Blob([rawData], { type: contentType});
+      fd.append("file", blob);
+
+      const data = await fetch(url, { method: "post", body: fd });
+      if (!data.ok) return Promise.reject(data);
+      return Promise.resolve({
+        bucket: this.config.bucketName,
+        key: `${this.config.dirName ? this.config.dirName + "/" : ""}${fileName}`,
+        location: `${url}/${this.config.dirName ? this.config.dirName + "/" : ""}${fileName}`,
+        status: data.status
+      });
+    }
+
     public async uploadFile(file: File, newFileName?: string): Promise<UploadResponse> {
       throwError(this.config, file);
 
@@ -68,6 +103,7 @@ class ReactS3Client {
       }
       return `${newFileName || shortId.generate()}.${file.type.split("/")[1]}`;
     }
+
 }
 
 export default ReactS3Client;
