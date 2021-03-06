@@ -1,6 +1,7 @@
 # react-aws-s3
 Open Source Module to Upload your Media and files into AWS S3 Bucket directly from Front-end React.
 
+### Help the Module developer (Amit Mishra) by donating a few dollars, for saving your many hrs.
 <p>
   <a href="https://paypal.me/devamitmishra?locale.x=en_GB">
       <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="paypal">
