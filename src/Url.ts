@@ -7,7 +7,7 @@ const buildUrl = ({bucketName, region}: IConfig): string => {
     case "cn":
       return `https://${bucketName}.s3.${region}.amazonaws.com.${countryCode}`;
     default:
-      return `https://${bucketName}.s3-${region}.amazonaws.com`;
+      return `https://${bucketName}.s3.${region}.amazonaws.com`;
   }
 }
 
